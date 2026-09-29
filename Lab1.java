@@ -1,11 +1,11 @@
 import java.util.Random;
-import java.lang.Math;
+import static java.lang.Math.*;
 public class Lab1 {
     public static void main(String[] args) {
-        long[] s = ArrayS();
+        long[] s = ArrayS();    
         float[] x = ArrayX();
         double[][] e = MatrizE(s, x);
-        impMatriz(e);
+        impMatriz(e); // Declaracion de las variables 
     }
     static long[] ArrayS() {
         long[] s = new long[12];
@@ -14,7 +14,7 @@ public class Lab1 {
             s[i] = valor;
             valor = valor + 2;
         }
-        return s;
+        return s; // Loop de la primer variable e incremento de de i 
     }
     static float[] ArrayX() {
         float[] x = new float[16];
@@ -24,18 +24,18 @@ public class Lab1 {
         for (int j = 0; j < x.length; j++) {
             x[j] = min + rnd.nextFloat() * (max - min);
         }
-        return x;
+        return x; // loop de la segunda variable e incemento de j
     }
     static double[][] MatrizE(long[] s, float[] x) {
         double[][] e = new double[s.length][x.length];
         for (int i = 0; i < s.length; i++) {
             for (int j = 0; j < x.length; j++) {
-                e[i][j] = calcular(s[i], x[j]);
+                e[i][j] = calculator(s[i], x[j]);
             }
         }
-        return e;
+        return e; // loop de la tercera variable (la matriz) e incremento con las variablres anteriores
     }
-    static double calcular(long si, double xj) {
+    static double calculator(long si, double xj) {
         if (si == 3) {
             return formulA(xj);
         } else if (perteneceA(si, 9, 1  , 15, 17, 21, 23)) {
@@ -43,26 +43,26 @@ public class Lab1 {
         } else {
             return formulC(xj);
         }
-    }
+    } // revisar si pertenece a alguna de las formulas 
     static double formulA(double x) {
-        double raiz = Math.cbrt(x);
-        double exponent = Math.pow(x, x);
-        double base = Math.pow(raiz, exponent);
+        double raiz = cbrt(x);
+        double exponent = pow(x, x);
+        double base = pow(raiz, exponent);
         double interior = base - 0.25;
-        return Math.pow(0.5 * interior, 2);
-    }
+        return pow(0.5 * interior, 2);
+    }   //resultado primera formula 
     static double formulB(double x) {
         double base = 2 * x;
-        double exponent = Math.pow(base, x);
-        double interior = Math.exp(exponent);
-        return Math.cos(interior);
-    }
+        double exponent = pow(base, x);
+        double interior = exp(exponent);
+        return cos(interior);
+    } // Resultado segunda formula 
     static double formulC(double x) {
-        double sin = Math.sin(x);
+        double sin = sin(x);
         double interior = 0.25 * sin;
-        double tangent = Math.tan(interior);
-        return Math.cos(tangent);
-    }
+        double tangent = tan(interior);
+        return cos(tangent);   
+    } // Resultado 4 formula
     static boolean perteneceA(long valor, long... conjunto) {
         for (long v : conjunto) {
             if (valor == v) {
@@ -70,7 +70,7 @@ public class Lab1 {
             }
         }
         return false;
-    }
+    } // Revicion de resultados 
     static void impMatriz(double[][] e) {
         for (double[] fila : e) {
             StringBuilder sb = new StringBuilder();
@@ -80,4 +80,13 @@ public class Lab1 {
             System.out.println(sb.toString().trim());
         }
     }
-}
+} // Impresion resultados
+
+//byte 1 en
+//short 2 en
+//int 4 en
+// long 8 en
+// float 4 de
+//double 8 de
+//char 2 le
+//boolean true or false 0
