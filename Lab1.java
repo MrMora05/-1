@@ -42,7 +42,7 @@ public class Lab1 {
     static double calculator(long si, double xj) {
         if (si == 3) {
             return formulA(xj);
-        } else if (perteneceA(si, 9, 1  , 15, 17, 21, 23)) {
+        } else if (perteneceA(si, 9, 13, 15, 17, 21, 23)) {
             return formulB(xj);
         } else {
             return formulC(xj);
